@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	background-color: skyblue;
+}
+
+.container {
+	max-width: 400px;
+	margin: 10% auto;
+	text-align: center;
+}
+
+fieldset {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 5px;
+}
+
+legend {
+	font-weight: bold;
+	color: red;
+	font-size: 25px
+}
+
+form {
+	margin: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	text-align: left;
+}
+
+input[type="text"] {
+	text-align: right;
+	width: 200px;
+	padding: 8px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	width: 200px;
+}
+
+input[type="checkbox"] {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	background-color: #FF4500;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #45a049;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<fieldset>
+			<legend>Create PlayList</legend>
+			<form action="addPlaylist" method="post">
+				<label>Playlist Name:</label> <input type="text" name="name" /> <br>
+				<!--incomplete -->
+				<div th:each="song:${songs}">
+					<input type="checkbox" th:name="songs" th:value="${song.id}" /> <label
+						th:text="${song.name}"></label>
+				</div>
+				<input type="submit" value="ADD PLAYLIST" />
+			</form>
+		</fieldset>
+	</div>
+</body>
+</html>
